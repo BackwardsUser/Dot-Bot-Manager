@@ -2,7 +2,7 @@
   "name": "dot-bot-manager",
   "version": "5.0.0",
   "description": "A Bot Manager for Discord",
-  "main": "./src/app/update.js",
+  "main": "./src/core/update.js",
   "scripts": {
     "test": "electron ."
   },
