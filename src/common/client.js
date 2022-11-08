@@ -26,8 +26,3 @@ module.exports = {
     check_client: _check_client,
 
 }
-
-_check_client("The Token", "p!", done = success => {
-    if (!success) return console.error("An error has occurred trying to start the bot; Likely an incorrect token.");
-    else console.log(success);
-})
