@@ -45,7 +45,8 @@ If you have an operating system other than Windows. Feel free to join the discor
 
 # Other
 ## Branches
-I will only be giving support for usage of the **main branch or Releases**, if you have any issues with the development branches feel free to join the [Discord](https://discord.gg/ERy8FKXeQ3) and ask for help!
+This branch will not be recieving support from the developers. However I'm sure many friendly users will be glad to assist you on the [Discord]
+(https://discord.gg/ERy8FKXeQ3)!
 
 ## Disclaimer
 This is a side project so releases and updates will be very sporadic. Also I know there are other Bot Managers Out there, but I feel mine is a lot more freeing while being still simple for beginners.
