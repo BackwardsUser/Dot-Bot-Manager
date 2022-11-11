@@ -9,7 +9,7 @@ var common = require('../common');
 common.app.init( () => {
 
     common.display.init("popup", () => {
-        common.display.displayHTML("popup", "index")
+        common.display.displayHTML("popup", "updater")
     });
 
     common.ws.init();

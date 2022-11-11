@@ -9,7 +9,8 @@ var _mainWindow = null;
 var _popupWindow = null;
 
 function _init(window, ready) {
-    if (window.toLowerCase() == ("pop" || "popup" || "popupwindow")) _createPopupWindow()
+    console.log(window)
+    if (window.toLowerCase() == "pop" || window.toLowerCase() == "popup" || window.toLowerCase() == "popupwindow") _createPopupWindow()
     else _createMainWindow();
     ready();
 }
@@ -36,13 +37,14 @@ function _displayHTML(window, page) {
 
 function _displayHTMLByString(window, page) {
     var _window = window.toLowerCase()
-    if (_window == "main" || _window == "mainwindow") return _mainWindow.loadFile(path.join('src', 'common', 'pages', 'HTML', `${page}.html`))
+    console.log(_popupWindow)
+    if (_window == "main" || _window == "mainwindow") return _mainWindow.loadFile(path.join('src', 'common', 'pages', 'HTML', `${page}.html`));
     else if (_window == "pop" || _window == "popup" || _window == "popupwindow") return _popupWindow.loadFile(path.join('src', 'common', 'pages', 'HTML', `${page}.html`));
     else return console.error("No window by the name of \"" + window +"\"");
 }
 
 function _displayHTMLByModule(window, page) {
-    (page.endsWith(".html")) ? window.loadFile(`./pages/HTML/${page}`) : window.loadFile(path.join('src', 'common', 'pages', 'HTML', `${page}.html`));
+    window.loadFile(path.join('src', 'common', 'pages', 'HTML', `${page}.html`));
 }
 
 module.exports = {

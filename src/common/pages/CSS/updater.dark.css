@@ -1,0 +1,55 @@
+@font-face {
+    font-family: Rubik;
+    src: url("../../assets/fonts/Rubik-VariableFont_wght.ttf");
+}
+
+:root {
+    --background-dark: rgb(36, 39, 61);
+    --text-dark: rgb(154, 170, 182);
+
+    --purple: #351663;
+    --darker-purple: #2E1356;
+    --background-active: rgb(36, 39, 61);
+    --text-active: rgb(154, 170, 182);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-active);
+    color: var(--text-active);
+    font-family: Rubik;
+}
+
+@keyframes load {
+    0% {
+        margin-left: -150px
+    }
+    50% {
+        margin-left: 150px;
+    }
+    100% {
+        margin-left: -150px;
+    }
+}
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.center {
+    padding: 55% 0;
+}
+
+.center > div {
+    padding: 5% 0;
+    text-align: center;
+}
+
+img {
+    animation: 3s infinite load ease;
+    background-color: var(--darker-purple);
+    border: 1px solid var(--darker-purple);
+    border-radius: 50%;
+}
