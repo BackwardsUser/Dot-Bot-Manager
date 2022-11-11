@@ -1,0 +1,37 @@
+{
+  "name": "dot-bot-manager",
+  "version": "1.0.0",
+  "description": "A Bot Manager for Discord",
+  "main": "./src/core/update.js",
+  "scripts": {
+    "test": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BackwardsUser/Dot-Bot-Manager.git"
+  },
+  "keywords": [
+    "Discord",
+    "Bot",
+    "Manager",
+    "Backwards",
+    "Application",
+    "Electron"
+  ],
+  "author": "BackwardsUser",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BackwardsUser/Dot-Bot-Manager/issues"
+  },
+  "homepage": "https://github.com/BackwardsUser/Dot-Bot-Manager#readme",
+  "dependencies": {
+    "discord.js": "^14.6.0",
+    "electron": "^21.2.2",
+    "ping": "^0.4.2",
+    "ws": "^8.11.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "nodemon": "^2.0.20"
+  }
+}
