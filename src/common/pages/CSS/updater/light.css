@@ -1,20 +1,21 @@
 @font-face {
     font-family: Rubik;
-    src: url("../../assets/fonts/Rubik-VariableFont_wght.ttf");
+    src: url("../../../assets/fonts/Rubik-VariableFont_wght.ttf");
 }
 
 :root {
+    --background: rgb(255, 255, 255);
+    --text: rgb(36, 39, 61);
+
     --purple: #351663;
     --darker-purple: #2E1356;
-    --background-active: rgb(255, 255, 255);
-    --text-active: rgb(36, 39, 61);
 }
 
 * {
     margin: 0;
     padding: 0;
-    background-color: var(--background-active);
-    color: var(--text-active);
+    background-color: var(--background);
+    color: var(--text);
     font-family: Rubik;
 }
 

@@ -1,13 +1,13 @@
 'use strict';
 
-var overwrite_color = "dark";
+var overwrite_color = null;
 
-console.log(overwrite_color)
+var settings = require("../../settings");
 
-var get_theme = (overwrite_color != null) ? overwrite_color : require('../../settings').theme;
+var get_theme = ( overwrite_color != null && settings.dev_mode) ? overwrite_color : settings.default_theme;
 
 var css = document.createElement('link')
 css.rel = "stylesheet";
-css.href = `../CSS/updater.${get_theme}.css`;
+css.href = `../CSS/updater/${get_theme}.css`;
 
 var head = document.querySelector('head').appendChild(css)

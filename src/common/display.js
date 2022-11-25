@@ -9,7 +9,6 @@ var _mainWindow = null;
 var _popupWindow = null;
 
 function _init(window, ready) {
-    console.log(window)
     if (window.toLowerCase() == "pop" || window.toLowerCase() == "popup" || window.toLowerCase() == "popupwindow") _createPopupWindow()
     else _createMainWindow();
     ready();
@@ -37,7 +36,6 @@ function _displayHTML(window, page) {
 
 function _displayHTMLByString(window, page) {
     var _window = window.toLowerCase()
-    console.log(_popupWindow)
     if (_window == "main" || _window == "mainwindow") return _mainWindow.loadFile(path.join('src', 'common', 'pages', 'HTML', `${page}.html`));
     else if (_window == "pop" || _window == "popup" || _window == "popupwindow") return _popupWindow.loadFile(path.join('src', 'common', 'pages', 'HTML', `${page}.html`));
     else return console.error("No window by the name of \"" + window +"\"");

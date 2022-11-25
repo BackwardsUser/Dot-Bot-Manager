@@ -1,23 +1,25 @@
+/* This is an example stylesheet */
+/* This document only shows that you can have more than dark and light */
+/* This shows how the Theme system works. */
+
 @font-face {
     font-family: Rubik;
-    src: url("../../assets/fonts/Rubik-VariableFont_wght.ttf");
+    src: url("../../../assets/fonts/Rubik-VariableFont_wght.ttf");
 }
 
 :root {
-    --background-dark: rgb(36, 39, 61);
-    --text-dark: rgb(154, 170, 182);
+    --background: rgb(0, 13, 111);
+    --text: rgb(48, 150, 227);
 
     --purple: #351663;
     --darker-purple: #2E1356;
-    --background-active: rgb(36, 39, 61);
-    --text-active: rgb(154, 170, 182);
 }
 
 * {
     margin: 0;
     padding: 0;
-    background-color: var(--background-active);
-    color: var(--text-active);
+    background-color: var(--background);
+    color: var(--text);
     font-family: Rubik;
 }
 
