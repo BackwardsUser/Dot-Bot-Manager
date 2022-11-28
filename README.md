@@ -1,4 +1,4 @@
-# <img src="https://raw.githubusercontent.com/BackwardsUser/Dot-Bot-Manager/f47ee3f435c18458c69d09d8468b1e4cd5c75a65/src/common/assets/icons/Dot%20Bot%20Manager%20Logo.svg" width="20"> Dot Bot Manager
+# <img src="https://raw.githubusercontent.com/BackwardsUser/Dot-Bot-Manager/f47ee3f435c18458c69d09d8468b1e4cd5c75a65/src/common/assets/icons/Dot%20Bot%20Manager%20Logo.svg" width="48"> Dot Bot Manager
 
 ![GitHub branch checks state](https://img.shields.io/github/checks-status/BackwardsUser/Dot-Bot-Manager/main)
 ![GitHub issues](https://img.shields.io/github/issues/BackwardsUser/Dot-Bot-Manager)
