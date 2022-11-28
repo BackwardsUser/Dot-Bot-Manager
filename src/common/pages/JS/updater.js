@@ -1,19 +1,24 @@
 'use strict';
+
 /* General Imports */
 var { ipcRenderer } = require('electron');
 var settings = require("../../settings");
 
-/* Acquiring and setting themes */
-var overwrite_color = null;
-var get_theme = ( overwrite_color != null && settings.dev_mode) ? overwrite_color : settings.default_theme;
-var css = document.createElement('link')
 
+/* Dev settings */
+
+/* Acquiring and setting themes */
+var css = document.createElement('link')
 css.rel = "stylesheet";
-if (settings.theme.nonstandard_file_location) {
-    css.href = `${settings.theme.file_location}`;
-} else {
-    css.href = `../CSS/updater/${get_theme}.css`;
-};
+if(settings.theme.nonstandard_file_location) css.href = `${settings.theme.file_location}\\${settings.theme.name}.css`;
+else css.href = `../css/updater/${settings.theme.name}.css`;
+
+
+// if (settings.theme.nonstandard_file_location || location.toString().toLowerCase() !== "default") {
+//     css.href = (location.toString().toLowerCase() === "default") ? settings.theme.file_location.toString() : `${location.toString().toLowerCase()}\\${font_name}`;
+// } else {
+//     css.href = `../CSS/updater/${get_theme}.css`;
+// };
 
 document.querySelector('head').appendChild(css);
 
@@ -30,5 +35,4 @@ ipcRenderer.addListener("CLEAR:CONTENT", (e, data) => {
 
 document.getElementById("loading_skip").addEventListener('click', () => {
     ipcRenderer.send("INTERNET:CHECK:DISABLE");
-    console.log("Hi")
 });

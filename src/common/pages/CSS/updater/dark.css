@@ -8,8 +8,8 @@
     --link: rgb(123, 146, 196);
     --text: rgb(154, 170, 182);
 
-    --purple: #351663;
-    --darker-purple: #2E1356;
+    --purple: #675a6f;
+    --darker-purple: #4d3c5b;
 }
 
 * {
@@ -35,15 +35,18 @@
 body {
     height: 100%;
     width: 100%;
+    user-select: none;
 }
 
 .center {
-    padding: 55% 0;
+    padding: 55% 0; 
+    user-select: none;
 }
 
 .center > div {
     padding: 5% 0;
     text-align: center;
+    user-select: none;
 }
 
 img {
@@ -51,16 +54,19 @@ img {
     background-color: var(--darker-purple);
     border: 1px solid var(--darker-purple);
     border-radius: 50%;
+    user-select: none;
 }
 
 footer {
     text-align: center;
     font-size: 15px;
     margin-top: 25px;
+    user-select: none;
 }
 
 .link-color {
     color: var(--link);
     text-decoration: underline;
     cursor: pointer;
+    user-select: none;
 }

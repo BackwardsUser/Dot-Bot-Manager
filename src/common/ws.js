@@ -1,11 +1,12 @@
 'use strict';
 
 var { WebSocket } = require('ws');
-var { ping } = require('./internet');
+var dns = require('dns')
 
 var serverSettings = require('./server');
 var settings = require('./settings');
-var display = require('./display')
+var display = require('./display');
+const { internet } = require('.');
 
 var reconnecting = -1;
 
@@ -17,14 +18,14 @@ function getInternetConnection(done) {
     done(false);
     setTimeout(async () => {
         for (var ip of settings.connection_test_ip) {
-            var connected = await ping(ip);
-            console.log(connected)
-            if (connected) console.log("Connection")
-            else {
-                display.post('popup', { type: "message", id: "message_top", content: "No Internet Connection"})
-                display.post('popup', { type: "clear", id: "message_bottom"})
-            }
-        }
+            internet.ping(ip, (con) => {
+                if (con) console.log("Connection"), done();
+                else {
+                    display.post('popup', { type: "message", id: "message_top", content: "No Internet Connection"});
+                    display.post('popup', { type: "clear", id: "message_bottom"});
+                };
+            });
+        };
     }, 2000);
 };
 

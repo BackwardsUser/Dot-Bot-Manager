@@ -24,7 +24,6 @@ function _createMainWindow() {
     _mainWindow.once('closed', () => {
         app.exit();
     })
-    _mainWindow.ma
 }
 
 function _createPopupWindow() {
@@ -42,9 +41,9 @@ function _displayHTML(window, page) {
 
 function _displayHTMLByString(window, page) {
     var _window = window.toLowerCase()
-    if (_getWindow(window) == "main") return _mainWindow.loadFile(path.join('src', 'common', 'pages', 'HTML', `${page}.html`));
-    else if (_getWindow(window) == "popup") return _popupWindow.loadFile(path.join('src', 'common', 'pages', 'HTML', `${page}.html`));
-    else return console.error("Something went wrong trying to display \"" + window +"\"..."); // This line is unreachable, but still a good fallback.
+    if (_getWindow(_window) == "main") return _mainWindow.loadFile(path.join('src', 'common', 'pages', 'HTML', `${page}.html`));
+    else if (_getWindow(_window) == "popup") return _popupWindow.loadFile(path.join('src', 'common', 'pages', 'HTML', `${page}.html`));
+    else return console.error("Something went wrong trying to display \"" + _window +"\"..."); // This line is unreachable, but still a good fallback.
 }
 
 function _displayHTMLByModule(window, page) {
