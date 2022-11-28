@@ -2,7 +2,7 @@
 
 module.exports = {
 
-    host: 'localhost',
-    port: 22
+    host: 'localhost',  // Change this to a Hostname linked through Cloudflare
+    port: 22    // This doesn't change.
 
 }

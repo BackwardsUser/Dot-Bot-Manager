@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Connecting</title>
-    <script src="../JS/updater.js"></script>
+    <script defer src="../JS/updater.js"></script>
 </head>
 <body>
     <div class="center">
@@ -11,8 +11,17 @@
             <img src="../../assets/icons/dot_win.ico" alt="dot_win.ico" width="75px">
         </div>
         <div class="message">
-            Connecting to Websocket
+            <p id="message_top">
+                Connecting to Websocket
+            </p>
+            <p id="message_bottom">
+            </p>
         </div>
     </div>
+    <footer>
+        <span>
+            Have internet? <a id="loading_skip" class="link-color">Click here</a>
+        </span>
+    </footer>
 </body>
 </html>

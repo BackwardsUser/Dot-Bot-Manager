@@ -17,6 +17,8 @@ if (common.settings.dev_mode) {
     console.warn("----------");
 };
 
+common.ipcMain
+
 common.app.init( () => {
 
     common.display.init("popup", () => {

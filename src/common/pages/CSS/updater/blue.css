@@ -9,6 +9,7 @@
 
 :root {
     --background: rgb(0, 13, 111);
+    --link: rgb(148, 179, 236);
     --text: rgb(48, 150, 227);
 
     --purple: #351663;
@@ -54,4 +55,16 @@ img {
     background-color: var(--darker-purple);
     border: 1px solid var(--darker-purple);
     border-radius: 50%;
+}
+
+footer {
+    text-align: center;
+    font-size: 15px;
+    margin-top: 25px;
+}
+
+.link-color {
+    color: var(--link);
+    text-decoration: underline;
+    cursor: pointer;
 }

@@ -1,23 +1,39 @@
 'use strict';
 
 var { WebSocket } = require('ws');
-var ping = require('ping');
+var { ping } = require('./internet');
 
 var serverSettings = require('./server');
 var settings = require('./settings');
+var display = require('./display')
 
 var reconnecting = -1;
 
 var _connection = null;
 
 function getInternetConnection(done) {
-    ping.sys.probe('8.8.8.8', function(alive) {
-        if (alive) return console.log("It appears that the WS servers are down."), console.log("Disabling WS functionalities.\nYou can still use the app, you just are unable to login.\nYou should be able to use the bot like normal, however."), _connection = null, done(false);
-        else return console.error("You are not connected to internet. Please connect to internet then restart the app.");
-    });
+    if (settings.loading_skips.skip_internet_check) return display.post('popup', { type: "message", id: "message_top", content: `Skipped Internet Check`}),
+    display.post('popup', { type: "clear", id: "message_bottom"}),
+    done(false);
+    setTimeout(async () => {
+        for (var ip of settings.connection_test_ip) {
+            var connected = await ping(ip);
+            console.log(connected)
+            if (connected) console.log("Connection")
+            else {
+                display.post('popup', { type: "message", id: "message_top", content: "No Internet Connection"})
+                display.post('popup', { type: "clear", id: "message_bottom"})
+            }
+        }
+    }, 2000);
 };
 
 function _init(done) {
+    if (settings.loading_skips.skip_ws_connection) return console.log("Skipped WS Connection"),
+    display.post('popup', { type: "message", id: "message_top", content: `Skipped WS Connection`}),
+    display.post('popup', { type: "message", id: "message_bottom", content: `Verifying Internet Connection`}),
+    getInternetConnection(done);
+
     var _connection = new WebSocket("ws://" + serverSettings.host);
 
     _connection.on('open', () => {
@@ -27,14 +43,22 @@ function _init(done) {
     });
 
     _connection.on('error', () => {
-        if (reconnecting >= 0) console.error("Failed. Attempt: " + reconnecting );
-        setTimeout( () => {
-            if (reconnecting == settings.reconnect_attempts) return console.error("Unable to connect to server."), getInternetConnection(done);
-            if (reconnecting == -1) console.error("Something went wrong. Attempting to reconnect");
-            if (reconnecting >= 0) console.log("Attempting Reconnection.");
-            reconnecting++;
-            _init();
-        }, 1000 * reconnecting)
+        setTimeout(() => {
+            if (reconnecting >= 0) console.error("Failed. Attempt: " + reconnecting);
+
+            // Ignore my mess...
+            if (reconnecting > 0) display.post('popup', { type: "message", id: "message_bottom", content: `Attempt: ${reconnecting}` }), display.post('popup', { type: "message", id: "message_top", content: "Attempting Reconnection" });
+            setTimeout(() => {
+                if (reconnecting == settings.reconnect_attempts) return console.error("Unable to connect to server."),
+                display.post('popup', { type: "message", id: "message_top", content: "Reconnection Failed"}),
+                display.post("popup", {type: "message", id: "message_bottom", content: "Checking Internet Connection."}),
+                getInternetConnection(done);
+                if (reconnecting == -1) console.error("Something went wrong. Attempting to reconnect");
+                if (reconnecting >= 0) console.log("Attempting Reconnection.");
+                reconnecting++;
+                _init();
+            }, 1000 * reconnecting)
+        }, (reconnecting == -1) ? 1000 : 0);
     });
 };
 
