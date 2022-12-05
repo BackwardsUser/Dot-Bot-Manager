@@ -5,7 +5,7 @@ var { ipcMain } = require('electron');
 
 
 // Local Imports
-var { mainWindow, popupWindow } = require('./display');
+var { mainWindow, popupWindow, getFocusedWindow } = require('./display');
 var settings = require('./settings');
 var ws = require('./ws')
 
@@ -18,36 +18,26 @@ function initializeDefaultEvents() {
         require('../core/update')
     });
 
-    ipcMain.on('MAIN:WINDOW', (e, data) => {
-        switch (data) {
-            case "close":
-                mainWindow.close();
-                break;
-            case "minimize":
-                mainWindow.minimize();
-                break;
-            case "maximize":
-                if (mainWindow.isMaximized) mainWindow.maximize
-                else mainWindow.unmaximize;
-                break;
-        }
+    ipcMain.on('WINDOW:MIN', (e) => {
+        var window = getFocusedWindow();
+        if (!window && !window.isMinimizable()) return;
+        if (!window.isMinimized()) window.minimize()
+    })
+
+    ipcMain.on('WINDOW:MAX', (e) => {
+        var window = getFocusedWindow();
+        if (!window && !window.isMaximized()) return;
+        if (!window.isMaximized()) window.maximize()
+        else window.unmaximize();
     });
 
-    ipcMain.on('POPUP:WINDOW', (e, data) => {
-        switch (data) {
-            case "close":
-                popupWindow.close();
-                break;
-            case "minimize":
-                popupWindow.minimize();
-                break;
-            case "maximize":
-                if (popupWindow.isMaximized) popupWindow.maximize
-                else popupWindow.unmaximize;
-                break;
-        }
+    ipcMain.on('WINDOW:CLOSE', (e) => {
+        var window = getFocusedWindow();
+        if (!window && !window.isClosable()) return;
+        window.close()
     })
 };
 
-
-
+module.exports = {
+    initializeDefaultEvents
+}

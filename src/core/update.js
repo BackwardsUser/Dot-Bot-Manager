@@ -17,7 +17,7 @@ if (common.settings.dev_mode) {
     console.warn("----------");
 };
 
-common.ipcMain
+common.ipcMain.initializeDefaultEvents();
 
 common.app.init( () => {
 
@@ -27,14 +27,8 @@ common.app.init( () => {
 
     common.ws.init((opened) => {
         common.display.init("main", () => {
-            if (opened) {
-                console.warn("Accounts have yet to be implemented, stay tuned!")
-                // I really don't want to deal with accounts right yet.
-                common.display.displayHTML("main", "botLog"); // Change "botLog" to "accLog" when accounts are implemented.
-                // "accLog" should, on completion, route you to "botLog" anyways.
-            } else {
-                common.display.displayHTML("main", "botLog");
-            }
+            common.display.destroy("popup")
+            common.display.displayHTML("main", "login");
         });
     });
 

@@ -1,0 +1,94 @@
+@font-face {
+    font-family: Rubik;
+    src: url("../../../assets/fonts/Rubik-VariableFont_wght.ttf");
+}
+
+:root {
+    --background-front: rgb(255, 255, 255);
+    --background-back: rgb(182, 182, 182);
+    --link: rgb(22, 70, 98);
+    --text: rgb(36, 39, 61);
+
+    --close: rgb(192, 46, 0);
+    --purple: #675a6f;
+    --darker-purple: #4d3c5b;
+}
+
+* {
+    font-family: Rubik;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--background-back);
+    display: grid;
+    grid-template-rows: repeat(auto-fill, max-content);
+    grid-template-columns: max-content, 100vw;
+    gap: 5px;
+    overflow: hidden;
+}
+
+header {
+    grid-column: 1/span 2;
+    -webkit-app-region: drag;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+    margin-right: 5px;
+    padding: 2px 0;
+}
+
+.win-ctrl {
+    width: 15px;
+    height: 15px;
+    padding:10px;
+    cursor: pointer;
+    position: static;
+    margin: -12px -2px;
+}
+
+.min > .win-ctrl:hover, .max > .win-ctrl:hover {
+    background-color: var(--background-front);
+}
+
+.close > .win-ctrl:hover {
+    background-color: var(--close);
+}
+
+nav {
+    margin-top: 20px;
+    padding: 0 20px;
+    margin-left: -15px;
+}
+
+.right {
+    -webkit-app-region: none;
+    margin-right: -3px;
+}
+
+main {
+    background-color: var(--background-front);
+    border-radius: 25px 0 0 0;
+    padding: 25px;
+    overflow-x: auto;
+    width: calc(100% - 50px);
+    height: calc(100vh - 96px);
+}
+
+.no-points {
+    list-style-type: none;
+    width: 100%;
+}
+
+.no-points > li {
+    width: 100%;
+    padding: 5px 10px;
+    text-align: center;
+    border-radius: 25px;
+}
+
+.active {
+    background-color: var(--background-front);
+}
+
