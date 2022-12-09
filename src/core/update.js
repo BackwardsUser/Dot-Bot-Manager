@@ -26,6 +26,7 @@ common.app.init( () => {
     });
 
     common.ws.init((opened) => {
+        if (opened) console.warn("No Updating script yet.")
         common.display.init("main", () => {
             common.display.destroy("popup")
             common.display.displayHTML("main", "login");

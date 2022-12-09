@@ -39,6 +39,8 @@ function _createMainWindow() {
     });
 };
 
+var reload = false;
+
 function _createPopupWindow() {
     _popupWindow = new BrowserWindow(windowSettings.popupWindow);
     _popupWindow.on('enter-full-screen', () => {
@@ -47,6 +49,18 @@ function _createPopupWindow() {
     _popupWindow.on('leave-full-screen', () => {
         _popupWindow.send("WINDOW:MAX:STATE", false);
     });
+    _popupWindow.webContents.on('did-finish-load', () => {
+        if (reload == false) return reload = true
+        else {
+            require('./ws').init((opened) => {
+                if (opened) console.warn("No Updating script yet.")
+                require('./display').init("main", () => {
+                    require('./display').destroy("popup")
+                    require('./display').displayHTML("main", "login");
+                });
+            });
+        }
+    })
 }
 
 // This will be all lot more helpful than I first imagined.
