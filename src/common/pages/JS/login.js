@@ -37,6 +37,19 @@ document.getElementById("close").firstChild.addEventListener('click', () => {
     ipcRenderer.send("WINDOW:CLOSE")
 })
 
+function navLinkClick(e) {  // When a nav button is pressed this function will run
+    if (e.className == "active") return; // If the button is already active, nothing will happen
+    var nav_children = document.querySelector(".nav-list").children; // gets every nav button
+    for ( var i = 0; i < nav_children.length; i++) {
+        if (nav_children[i].className.startsWith("active")) {   // Check if the current nav button has the class "active"
+            nav_children[i].className = ""; // If it does it removes it
+            break;  // Than ends the for loop
+        };
+    };
+    e.className = "active"; // Finally it sets the clicked button's class name to "active"
+};
+
+
 ipcRenderer.addListener("WINDOW:MAX:STATE", (e, state) => {
     var image = document.getElementById("max").firstChild
     if(state) image.src = "../../assets/images/controls/max-b.svg"

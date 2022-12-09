@@ -92,3 +92,11 @@ main {
     background-color: var(--background-front);
 }
 
+#nav-link {
+    transition: 500ms ease-in-out;
+    cursor: pointer;
+}
+
+#nav-link:hover {
+    background-color: var(--background-front);
+}
