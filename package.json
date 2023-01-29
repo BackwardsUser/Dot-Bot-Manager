@@ -1,0 +1,21 @@
+{
+  "name": "dot-bot-manager",
+  "version": "1.0.0",
+  "description": "An alternate variant of Dot Bot Manager that uses alternate methods of producing commands and events to completely aliviate the need to code.",
+  "main": "./src/core/index.js",
+  "scripts": {
+    "test": "nodemon ."
+  },
+  "author": "Backwards",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "discord.js": "^14.7.1",
+    "ejs": "^3.1.8",
+    "electron": "^22.0.0",
+    "electron-tabs": "^1.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
