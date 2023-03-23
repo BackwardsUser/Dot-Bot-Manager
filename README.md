@@ -1,4 +1,4 @@
-# This repository will be temporarily be archived until I am willing to work on it again.
+# This repository will be temporarily archived until I am willing to work on it again.
 Any comments? Thoughts on how I could make bot making simple? Any thoughts?
 DM me at the following locations:
 * Instagram @ backwards_user
