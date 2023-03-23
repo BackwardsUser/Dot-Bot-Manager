@@ -1,3 +1,7 @@
+# This repository will be temporarily be archived until I am willing to work on it again.
+If you have any input or comments on this project feel free to open an issue.
+If you have any code you would like to implement feel free to DM me or open a Pull Request.
+
 # <img src="https://i.imgur.com/ucDhjNi.png" width="20"> Dot Bot Manager
 
 ![GitHub branch checks state](https://img.shields.io/github/checks-status/BackwardsUser/Dot-Bot-Manager/main)
