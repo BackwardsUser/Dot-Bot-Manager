@@ -1,9 +1,11 @@
-# This repository will be temporarily archived until I am willing to work on it again.
+# Unable to continue working on this project.
+I am unable to continue work on this project as the scope of the project has out grown me.
+I will continue working on this project when I get an idea on how to continue.
+
 Any comments? Thoughts on how I could make bot making simple? Any thoughts?
 DM me at the following locations:
 * Instagram @ backwards_user
-* Discord @ Backwards#0149 (Recommended)
-* My Discord Server @ [Backwards Development Official Discord Server](https://discord.gg/ERy8FKXeQ3)
+* Discord @ Backwards#0149 (Recommended)=
 
 # <img src="https://i.imgur.com/ucDhjNi.png" width="20"> Dot Bot Manager
 
@@ -13,7 +15,6 @@ DM me at the following locations:
 ![GitHub last commit](https://img.shields.io/github/last-commit/BackwardsUser/Dot-Bot-Manager)
 ![GitHub all releases](https://img.shields.io/github/downloads/BackwardsUser/Dot-Bot-Manager/total)
 ![GitHub repo size](https://img.shields.io/github/repo-size/BackwardsUser/Dot-Bot-Manager)
-![Discord](https://img.shields.io/discord/1037779805376098356)
 ![Subreddit subscribers](https://img.shields.io/reddit/subreddit-subscribers/DotBotManager)
 <!-- ![GitHub package.json version](https://img.shields.io/github/package-json/v/BackwardsUser/Dot-Bot-Manager) -->
 
